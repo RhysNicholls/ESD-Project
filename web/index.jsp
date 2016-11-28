@@ -12,15 +12,32 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>This is expected to serve as a proper Web Page</h1>
-        <form method="POST" action="UserService.do">
-        <p />
-            View a table <br />
-            <input type="radio" name="tbl" value="List">List Users<br />
-            <input type="radio" name="tbl" value="NewUser">New User<br />
-            <input type="radio" name="tbl" value="Update">Password Change<br />
-            <input type="radio" name="tbl" value="Delete">Delete a User<br />
-            <input type=submit value="Action"> <br />
-        </form> 
+    <center>
+        <h1>Homepage</h1>
+    </center>
+        <form action="First" method="post">
+            <center>
+            <p />
+            
+            User Sign in <br />
+            Username: <input type="text" name="username"><br />
+            Password: <input type="text" name="password" ><br />
+            <input type ="checkbox" name = "admin"> Sign in as Admin <br />
+             <input type=submit value="Enter"> <br />
+            
+            <br />
+            <br />
+            
+            Register as new user <br />
+            Name   : <input type="text" name="name" ><br />
+            DOB    : <input type="date" name="dob" ><br />
+            Address: <input type="text" name="address" ><br />
+            
+            <input type=submit value="Register"> <br />
+            </center>
+        </form>
+        
+       
     </body>
 </html>
+
