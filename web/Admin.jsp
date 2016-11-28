@@ -15,11 +15,33 @@
     <center>
         <h1>Admin Page</h1>
         
-        Current Members
-        <%=(String)(request.getAttribute("query"))%>
+        Current Members <br/>
+        <%=(String)(request.getAttribute("query"))%> <br />
         
+        Outstanding Balances: <br/>
+        <input type=submit value="Check"> <br />
         
+        Check Claims <br />
+        <input type=submit value="Check"> <br />
         
+        Member Applications <br />
+        <input type=submit value="Check"> <br />
+        
+        Individual Claims <br />
+        <input type=submit value="Check"> <br />
+        
+        Member Applications <br />
+        <%=(String)(request.getAttribute("query"))%> <br />
+        <input type=submit value="Approve">
+        <input type=submit value="Deny"> <br />
+        
+        Suspend/Resume Memberships
+        <%=(String)(request.getAttribute("query"))%> <br />
+        <input type=submit value="Suspend">
+        <input type=submit value="Resume"> <br />
+        
+        Annual Turnover
+        <%=(String)(request.getAttribute("query"))%> <br />
         
         
         
