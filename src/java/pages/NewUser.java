@@ -48,9 +48,6 @@ public class NewUser extends HttpServlet {
         query[2] = (String)request.getParameter("address");
         query[3] = (String)request.getParameter("dob");
         query[4] = RandomStringUtils.randomAlphabetic(10).toLowerCase();
-        
-        
-        //String insert = "INSERT INTO `Users` (`username`, `password`) VALUES ('";
       
         Jdbc jdbc = new Jdbc();
         jdbc.connect((Connection)request.getServletContext().getAttribute("connection"));
@@ -61,7 +58,7 @@ public class NewUser extends HttpServlet {
         
         
         else {
-            jdbc.insert(query);
+            jdbc.insertNewUser(query);
             request.setAttribute("message", "Your Username is:" + query[0]+ " Your Passowrd is: " + query[4]);
         }
          

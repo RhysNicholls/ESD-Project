@@ -3,25 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com;
+package pages;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
-import model.Jdbc;
 
 /**
  *
  * @author Rhys
  */
-public class UserLogin extends HttpServlet {
+public class NewClaim extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,32 +30,8 @@ public class UserLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-
-        HttpSession session = request.getSession(false);
-
-        Jdbc jdbc = new Jdbc();
-        jdbc.connect((Connection) request.getServletContext().getAttribute("connection"));
-        session.setAttribute("dbbean", jdbc);
-
-        if (jdbc == null) {
-            request.getRequestDispatcher("/WEB-INF/conErr.jsp");
-        } else {
-
-            String id = request.getParameter("id");
-            String password = request.getParameter("password");
-
-            if (jdbc.checkUser(id, password)) {
-
-                if (jdbc.checkAdmin(id, password)) {
-                    request.getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
-                } else {
-                    request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
-                }
-
-            }
-            request.getRequestDispatcher("/WEB-INF/userLoginFail.jsp").forward(request, response);
-        }
-
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

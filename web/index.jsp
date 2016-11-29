@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     
-        <h1>This is expected to serve as a proper Web Page</h1>
+        
         
         <form action="UserLogin.do" method="post">
             <center>
