@@ -28,30 +28,7 @@
                 url = "NewUser.do";
             } 
         %>
-        <form method="POST" action="<%=url%>">     
-            <table>
-                <tr>
-                    <th></th>
-                    <th>Please provide your following details</th>
-                </tr>
-                <tr>
-                    <td>name:</td>
-                    <td><input type="text" name="name"/></td>
-                </tr>
-                <tr>
-                    <td>Address:</td>
-                    <td><input type="text" name="address"/></td>
-                </tr>
-                <tr> 
-                    <tr>
-                    <td>Date of Birth:</td>
-                    <td><input type="date" name="dob"/></td>
-                </tr>
-                <tr> 
-                    <td> <input type="submit" value="<%=str%>"/></td>
-                </tr>
-            </table>
-        </form>   
+        
         <%
             if (i++>0 && request.getAttribute("message")!=null) {
                 out.println(request.getAttribute("message"));

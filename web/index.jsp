@@ -11,16 +11,29 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
+    
         <h1>This is expected to serve as a proper Web Page</h1>
-        <form method="POST" action="UserService.do">
-        <p />
-            View a table <br />
-            <input type="radio" name="tbl" value="List">List Users<br />
-            <input type="radio" name="tbl" value="NewUser">New User<br />
-            <input type="radio" name="tbl" value="Update">Password Change<br />
-            <input type="radio" name="tbl" value="Delete">Delete a User<br />
-            <input type=submit value="Action"> <br />
+        
+        <form action="UserLogin.do" method="post">
+            <center>
+            <p />
+            
+            User Sign in <br />
+            Username: <input type="text" name="id"><br />
+            Password: <input type="text" name="password" ><br />
+            <input type ="checkbox" name = "admin"> Sign in as Admin <br />
+             <input type=submit value="Login"> <br />
+            
+            <br />
+        </form>
+      <form method="POST" action="NewUser.do">     
+            Register as new user <br />
+            Name   : <input type="text" name="name" ><br />
+            DOB    : <input type="date" name="dob" ><br />
+            Address: <input type="text" name="address" ><br />
+            
+            <input type=submit value="Register"> <br />
+            </center>
         </form> 
-    </body>
+    
 </html>

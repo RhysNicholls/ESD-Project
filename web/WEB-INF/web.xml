@@ -16,6 +16,14 @@
         <servlet-name>Update</servlet-name>
         <servlet-class>pages.Update</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserLogin</servlet-name>
+        <servlet-class>com.UserLogin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UserLogin2</servlet-name>
+        <servlet-class>com.UserLogin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserServLet</servlet-name>
         <url-pattern>/UserService.do</url-pattern>
@@ -27,6 +35,14 @@
     <servlet-mapping>
         <servlet-name>Update</servlet-name>
         <url-pattern>/Update.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserLogin</servlet-name>
+        <url-pattern>/UserLogin.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserLogin2</servlet-name>
+        <url-pattern>/UserLogin2</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
