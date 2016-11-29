@@ -45,7 +45,6 @@
         
         
         
-        
         <jsp:include page="foot.jsp"/>
     </center>
     </body>
