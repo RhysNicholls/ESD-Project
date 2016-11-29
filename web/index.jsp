@@ -48,7 +48,6 @@
             User Sign in <br />
             Username: <input type="text" name="id"><br />
             Password: <input type="text" name="password" ><br />
-            <input type ="checkbox" name = "admin"> Sign in as Admin <br />
             <input type=submit value="Login"> <br />
             </div>           
         </form>
