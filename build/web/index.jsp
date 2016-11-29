@@ -20,14 +20,15 @@
             <p />
             
             User Sign in <br />
-            Username: <input type="text" name="username"><br />
+            Username: <input type="text" name="id"><br />
             Password: <input type="text" name="password" ><br />
             <input type ="checkbox" name = "admin"> Sign in as Admin <br />
-             <input type=submit value="Enter"> <br />
+             <input type=submit value="Login"> <br />
             
             <br />
             <br />
-            
+        </form>
+           <form action="NewUser.do" method="post"> 
             Register as new user <br />
             Name   : <input type="text" name="name" ><br />
             DOB    : <input type="date" name="dob" ><br />
