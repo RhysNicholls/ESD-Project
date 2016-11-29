@@ -33,7 +33,7 @@
         } 
         </style>
     </head>
-    <body  background = "bgimage.jpg">>
+    <body>
     <div class ="w3-container w3-blue">    
     <center>
         <h1>XYS Drivers Association </h1>
