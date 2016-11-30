@@ -1,7 +1,7 @@
 <%-- 
     Document   : userPage
     Created on : 29-Nov-2016, 12:32:03
-    Author     : Jack
+    Author     : Rhys, Jack, Mark, Ryan
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

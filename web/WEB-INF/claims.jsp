@@ -1,7 +1,7 @@
 <%-- 
     Document   : claims
     Created on : 29-Nov-2016, 16:23:18
-    Author     : Jack
+    Author     : Rhys, Jack, Mark, Ryan
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
     Created on : 09-Mar-2016, 16:52:19
-    Author     : me-aydin
+    Author     : Rhys, Jack, Mark, Ryan
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

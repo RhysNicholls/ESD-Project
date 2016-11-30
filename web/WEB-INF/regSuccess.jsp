@@ -1,7 +1,7 @@
 <%-- 
     Document   : regSuccess
     Created on : 29-Nov-2016, 12:48:48
-    Author     : Jack
+    Author     : Rhys, Jack, Mark, Ryan
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

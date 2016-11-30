@@ -1,7 +1,7 @@
 <%-- 
     Document   : conErr
     Created on : 30-Nov-2015, 13:26:37
-    Author     : me-aydin
+    Author     : Rhys, Jack, Mark, Ryan
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

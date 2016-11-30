@@ -19,7 +19,7 @@ import model.Jdbc;
 
 /**
  *
- * @author Rhys
+ * @author Rhys, Jack, Mark, Ryan
  */
 public class UserLogin extends HttpServlet {
 

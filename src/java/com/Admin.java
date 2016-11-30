@@ -20,7 +20,7 @@ import model.Jdbc;
 
 /**
  *
- * @author Rhys
+ * @author Rhys, Jack, Mark, Ryan
  */
 public class Admin extends HttpServlet {
 

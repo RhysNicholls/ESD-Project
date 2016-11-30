@@ -18,7 +18,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  *
- * @author Rhys
+ * @author Rhys, Jack, Mark, Ryan
  */
 public class NewClaim extends HttpServlet {
 

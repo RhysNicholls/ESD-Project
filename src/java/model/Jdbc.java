@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author me-aydi
+ * @author Rhys, Jack, Mark, Ryan
  */
 public class Jdbc {
 
