@@ -56,7 +56,7 @@ public class Jdbc {
     private String makeTable(ArrayList list) {
         StringBuilder b = new StringBuilder();
         String[] row;
-        b.append("<table border=\"3\">");
+        b.append("<table>");
         for (Object s : list) {
             b.append("<tr>");
             row = (String[]) s;
