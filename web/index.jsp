@@ -60,8 +60,12 @@
 
 
                 <div class ="logins">
+                    
                     User Sign in <br />
+                    <br />
+                    <br />
                     Username: <input type="text" name="id"><br />
+                    <br />
                     Password: <input type="text" name="password" ><br />
                     <input type=submit value="Login"> <br />
                 </div>           
@@ -71,7 +75,10 @@
 
         <form action="NewUser.do" method="post">
             <div class ="logins2">
+                
                 Register as new user <br />
+                <br />
+                <br />
                 Name   :<br /> <input type="text" name="name" ><br />
                 DOB    :<br /> <input type="date" name="dob" ><br />
                 Address: <input type="text" name="address" ><br />
