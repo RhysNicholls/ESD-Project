@@ -81,7 +81,7 @@
                 <br />
                 Name   :<br /> <input type="text" name="name" ><br />
                 DOB    :<br /> <input type="date" name="dob" ><br />
-             
+                Address: <br />
                 <div id="locationField">
                     <input id="autocomplete" placeholder="Enter your address"
                            onFocus="geolocate()" type="text" name = "address"></input>
