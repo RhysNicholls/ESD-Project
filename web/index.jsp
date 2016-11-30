@@ -20,7 +20,13 @@
                 max-width: 300px;
                 height: 300px;
                 border: 1px solid black;
+                border-radius: 25px;
+                background-color: white; opacity: 0.8;     
             } 
+            .logins:hover {
+                    opacity: 1.0;
+                    background-color: white;
+                }   
         </style>
         <style>
             .logins2 {
@@ -30,7 +36,14 @@
                 max-width: 300px;
                 height: 300px;
                 border: 1px solid black;
+                border-radius: 25px;
+                background-color: white; opacity: 0.8;
+                
             } 
+            .logins2:hover {
+                opacity: 1.0;
+                background-color: white; 
+            }
         </style>
     </head>
     <body background = "${pageContext.request.contextPath}/resources/car.jpg">
