@@ -15,7 +15,7 @@
         <style>
             .logins {
                 float: left;
-                margin: 200px;
+                margin: 100px;
                 padding: 15px;
                 max-width: 300px;
                 height: 300px;
@@ -24,8 +24,8 @@
         </style>
         <style>
             .logins2 {
-                float: left;
-                margin: 200px;
+                float: right;
+                margin: 100px;
                 padding: 15px;
                 max-width: 300px;
                 height: 300px;
