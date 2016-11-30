@@ -17,7 +17,7 @@ import model.Jdbc;
 
 /**
  *
- * @author Rhys, Jack, Mark, Ryan
+ * @author me-aydin
  */
 @WebServlet(name = "Delete", urlPatterns = {"/Delete.do"})
 public class Delete extends HttpServlet {

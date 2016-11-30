@@ -50,21 +50,22 @@
         <div class ="w3-container w3-blue w3-hover-light-blue"> 
             <center>
                 <h1>XYZ Drivers Association</h1>
-                <h1>Members page</h1>
+                <h2>Welcome <%=(String) (session.getAttribute("userID"))%> </h2>
+                <h3>Members page</h3>
             </center>
         </div>
 
     <center>
         <div class ="options">
             Outstanding Balance: <br/>
-            <%=(String) (request.getAttribute("query"))%> <br />
+            <%=(String) (request.getAttribute("balance"))%> <br />
 
             Make Payment: <br />
             <input type="text"> <br />
-            <input type=submit value="Check"> <br />
+            <input type=submit value="Make Payment"> <br />
 
             All Payments: <br />
-            <%=(String) (request.getAttribute("query"))%> <br />
+            <%=(String) (request.getAttribute("allPayments"))%> <br />
         </div>
 
 
@@ -74,10 +75,10 @@
 
                 Submit Claim: <br />
                 <input type="text"> <br />
-                <input type=submit value="Check"> <br />
+                <input type=submit value="Submit Claim"> <br />
 
                 All Claims: <br />
-                <%=(String) (request.getAttribute("query"))%> <br />
+                <%=(String) (request.getAttribute("allClaims"))%> <br />
                 </center>
             </div>
         </form>

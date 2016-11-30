@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Rhys, Jack, Mark, Ryan
+ * @author me-aydi
  */
 public class Jdbc {
 
@@ -39,7 +39,7 @@ public class Jdbc {
         connection = con;
     }
 
-    private ArrayList rsToList() throws SQLException {
+    public ArrayList rsToList() throws SQLException {
         ArrayList aList = new ArrayList();
 
         int cols = rs.getMetaData().getColumnCount();
@@ -71,7 +71,7 @@ public class Jdbc {
         return b.toString();
     }//makeHtmlTable
 
-    private void select(String query) {
+    public void select(String query) {
         //Statement statement = null;
 
         try {
@@ -83,6 +83,7 @@ public class Jdbc {
             //results = e.toString();
         }
     }
+    
 
     public String retrieve(String query) throws SQLException {
         String results = "";

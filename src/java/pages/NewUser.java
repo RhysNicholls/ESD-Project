@@ -19,7 +19,7 @@ import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  *
- * @author Rhys, Jack, Mark, Ryan
+ * @author me-aydin
  */
 public class NewUser extends HttpServlet {
 

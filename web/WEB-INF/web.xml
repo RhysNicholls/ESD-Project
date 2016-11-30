@@ -34,7 +34,11 @@
     </servlet>
     <servlet>
         <servlet-name>Admin</servlet-name>
-        <servlet-class>com.Admin</servlet-class>
+        <servlet-class>pages.Admin</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>User</servlet-name>
+        <servlet-class>pages.User</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UserServLet</servlet-name>
@@ -67,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>Admin</servlet-name>
         <url-pattern>/Admin.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>User</servlet-name>
+        <url-pattern>/User.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
