@@ -1,7 +1,6 @@
 package com;
 
-import java.io.*;
-import static java.lang.System.out;
+import java.io.IOException;
 import java.sql.Connection;
 
 import javax.servlet.*;
@@ -12,13 +11,8 @@ import model.Jdbc;
 
 public class UserFilter implements Filter {
 
-        private FilterConfig fc;
-        
-
-       
     @Override
     public void init(FilterConfig arg0) throws ServletException {
-        this.fc = arg0;
     }
 
     /**
@@ -39,17 +33,9 @@ public class UserFilter implements Filter {
         jdbc.connect((Connection) request.getServletContext().getAttribute("connection"));
         session.setAttribute("dbbean", jdbc);
 
-        HttpServletRequest httpReq = (HttpServletRequest) request;
-        
-        String name = httpReq.getRemoteUser();
-        
-        OutputStream outputStream = new FileOutputStream("/WEB-INF/UserLog.txt");
-        Writer ouputStreamWriter = new OutputStreamWriter(outputStream);
-        
-        if(name != null) {
-            ouputStreamWriter.write("User " + name + " is updating");
-        }
-        
+       
+
+       
         if (status.equals("ADMIN")) {
            request.getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
         } else {

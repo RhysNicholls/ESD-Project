@@ -27,10 +27,6 @@
     <servlet>
         <servlet-name>UserFilter</servlet-name>
         <servlet-class>com.UserFilter</servlet-class>
-        <init-param>
-            <param-name>test</param-name>
-            <param-value>UserLog.txt</param-value>
-        </init-param>
     </servlet>
     <servlet>
         <servlet-name>MakeClaim</servlet-name>
