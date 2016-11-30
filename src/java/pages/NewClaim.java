@@ -3,26 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com;
+package pages;
 
 import java.io.IOException;
-//import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import model.Jdbc;
 
 /**
  *
- * @author me-aydin
+ * @author Rhys
  */
-public class UserServlet extends HttpServlet {
+public class NewClaim extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,41 +29,10 @@ public class UserServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String qry = "select * from members";
-       
-        HttpSession session = request.getSession();
-        
         response.setContentType("text/html;charset=UTF-8");
         
-        Jdbc dbBean = new Jdbc();
-        dbBean.connect((Connection)request.getServletContext().getAttribute("connection"));
-        session.setAttribute("dbbean", dbBean);
         
-        if((Connection)request.getServletContext().getAttribute("connection")==null)
-            request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
-        
-        if (request.getParameter("tbl").equals("List")){
-            String msg="No users";
-            try {
-                msg = dbBean.retrieve(qry);
-            } catch (SQLException ex) {
-                Logger.getLogger(UserServlet.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            request.setAttribute("query", msg);
-            request.getRequestDispatcher("/WEB-INF/results.jsp").forward(request, response);
-        }
-        else if(request.getParameter("tbl").equals("NewUser")){
-            request.getRequestDispatcher("/WEB-INF/user.jsp").forward(request, response);
-        } 
-        else if(request.getParameter("tbl").equals("Update")){
-            request.getRequestDispatcher("/WEB-INF/passwdChange.jsp").forward(request, response);    
-        }
-        else {
-            request.setAttribute("msg", "del");
-            request.getRequestDispatcher("/WEB-INF/user.jsp").forward(request, response); 
-        }
     }
-      
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

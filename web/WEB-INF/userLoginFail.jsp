@@ -9,10 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Connection Error Page</title>
+        <title>Login Unsuccessful</title>
     </head>
     <body>
-        <h1>DB Connection could not been established!!</h1>
+        <h1>Username or Password Incorrect. Please try again</h1>
          <jsp:include page="foot.jsp"/>
     </body>
 </html>

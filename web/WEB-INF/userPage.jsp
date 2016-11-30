@@ -17,18 +17,30 @@
         float: left;
         margin: 200px;
         padding: 15px;
-        max-width: 300px;
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        } 
+        </style>
+        <style>
+        .options2 {
+        float: left;
+        margin: 200px;
+        padding: 15px;
+        width: 300px;
         height: 300px;
         border: 1px solid black;
         } 
         </style>
     </head>
     <body>
-        <div class ="w3-container w3-blue"> 
+        <div class ="w3-container w3-blue w3-hover-light-blue"> 
         <center>
             <h1>XYZ Drivers Association</h1>
             <h1>Members page</h1>
-        
+        </center>
+        </div>
+    <center>
         <div class ="options">
         Outstanding Balance: <br/>
         <%=(String)(request.getAttribute("query"))%> <br />
@@ -36,17 +48,21 @@
         Make Payment: <br />
         <input type="text"> <br />
         <input type=submit value="Check"> <br />
+                
+        All Payments: <br />
+        <%=(String)(request.getAttribute("query"))%> <br />
+        </div>
         
-        Submit Claim: <br />
-        <input type="text"> <br />
+        <form action="claims.do" method="post">
+        <div class ="options2">    
+        Make a Claim: <br />
         <input type=submit value="Check"> <br />
         
         All Claims: <br />
         <%=(String)(request.getAttribute("query"))%> <br />
-        
-        All Payments: <br />
-        <%=(String)(request.getAttribute("query"))%> <br />
+        </center>
         </div>
+        </form>
         
         
         <jsp:include page="foot.jsp"/>

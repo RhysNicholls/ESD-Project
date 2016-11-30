@@ -6,6 +6,7 @@
 package pages;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,8 +35,10 @@ public class NewUser extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
+        
         HttpSession session = request.getSession(false);
-         Random rn = new Random();
+         
+        Random rn = new Random();
         
         
         String [] query = new String[5];
@@ -45,18 +48,17 @@ public class NewUser extends HttpServlet {
         query[2] = (String)request.getParameter("address");
         query[3] = (String)request.getParameter("dob");
         query[4] = RandomStringUtils.randomAlphabetic(10).toLowerCase();
-        
-        
-        //String insert = "INSERT INTO `Users` (`username`, `password`) VALUES ('";
       
-        Jdbc jdbc = (Jdbc)session.getAttribute("dbbean"); 
+        Jdbc jdbc = new Jdbc();
+        jdbc.connect((Connection)request.getServletContext().getAttribute("connection"));
+        session.setAttribute("dbbean", jdbc); 
         
         if (jdbc == null)
             request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
         
         
         else {
-            jdbc.insert(query);
+            jdbc.insertNewUser(query);
             request.setAttribute("message", "Your Username is:" + query[0]+ " Your Passowrd is: " + query[4]);
         }
          

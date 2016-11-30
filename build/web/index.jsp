@@ -34,21 +34,20 @@
         </style>
     </head>
     <body>
-    <div class ="w3-container w3-blue">    
+    <div class ="w3-container w3-blue w3-hover-light-blue">    
     <center>
         <h1>XYS Drivers Association </h1>
         <h1>Homepage</h1>
     </center>
     </div>
-        <form action="First" method="post">
+        <form action="UserLogin.do" method="post">
             <center>
-            <p />
+ 
             
             <div class ="logins">
             User Sign in <br />
             Username: <input type="text" name="id"><br />
             Password: <input type="text" name="password" ><br />
-            <input type ="checkbox" name = "admin"> Sign in as Admin <br />
             <input type=submit value="Login"> <br />
             </div>           
         </form>
@@ -58,8 +57,8 @@
            <form action="NewUser.do" method="post">
            <div class ="logins2">
             Register as new user <br />
-            Name   : <input type="text" name="name" ><br />
-            DOB    : <input type="date" name="dob" ><br />
+            Name   :<br /> <input type="text" name="name" ><br />
+            DOB    :<br /> <input type="date" name="dob" ><br />
             Address: <input type="text" name="address" ><br />
             
             <input type=submit value="Register"> <br />
