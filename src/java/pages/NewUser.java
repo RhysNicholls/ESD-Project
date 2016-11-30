@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 import model.Jdbc;
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -41,8 +42,10 @@ public class NewUser extends HttpServlet {
         Random rn = new Random();
 
         String[] query = new String[5];
+        String firstname = (String) request.getParameter("firstname");
+        String lastname = (String) request.getParameter("lastname");
 
-        query[0] = (String) request.getParameter("firstname").substring(0, 1).toLowerCase() + "-" + (String) request.getParameter("lastname").toLowerCase();
+        query[0] = firstname.substring(0, 1).toLowerCase() + "-" + lastname.toLowerCase();
         query[1] = (String) request.getParameter("firstname") + " " + (String) request.getParameter("lastname");
         query[2] = (String) request.getParameter("address");
         query[3] = (String) request.getParameter("dob");
@@ -53,7 +56,14 @@ public class NewUser extends HttpServlet {
         session.setAttribute("dbbean", jdbc);
 
         if (jdbc == null) {
-            request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
+            
+            JOptionPane.showMessageDialog(null, "Names can't have numbers in, please try again.", "Warning", JOptionPane.WARNING_MESSAGE);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+
+        } else if (firstname.matches(".*\\d+.*") || lastname.matches(".*\\d+.*")) {
+            
+            JOptionPane.showMessageDialog(null, "Names can't have numbers in, please try again.", "Warning", JOptionPane.WARNING_MESSAGE);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
         } else {
             
             jdbc.insertNewUser(query);

@@ -56,26 +56,32 @@
         </div>
 
     <center>
+        <form action ="user.do" method ="post">
         <div class ="options">
             Outstanding Balance: <br/>
             <%=(String) (request.getAttribute("balance"))%> <br />
 
             Make Payment: <br />
             <input type="text"> <br />
-            <input type=submit value="Make Payment"> <br />
+            <input type=submit name="payment" value="Make Payment"> <br />
 
             All Payments: <br />
             <%=(String) (request.getAttribute("allPayments"))%> <br />
         </div>
-
+        </form>
 
         <form action="claims.do" method ="post">
 
             <div class ="options2">
 
                 Submit Claim: <br />
+                Amount: <br />
                 <input type="text"> <br />
-                <input type=submit value="Submit Claim"> <br />
+                Reason: <br />
+                <input type="text"> <br />
+                <input type=submit name="claim" value="Submit Claim"> <br />
+                
+                
 
                 All Claims: <br />
                 <%=(String) (request.getAttribute("allClaims"))%> <br />
@@ -85,6 +91,6 @@
 
 
 
-        <jsp:include page="foot.jsp"/>
+        <jsp:include page="userFoot.jsp"/>
     </body>
 </html>

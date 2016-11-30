@@ -14,6 +14,6 @@
         <h1><%=(String)(request.getAttribute("title"))%></h1>
 
         <%=(String)(request.getAttribute("msg"))%>
-        <jsp:include page="foot.jsp"/>
+        <jsp:include page="adminFoot.jsp"/>
     </body>
 </html>

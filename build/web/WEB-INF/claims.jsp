@@ -37,6 +37,6 @@
                 <input type=submit value="Submit"> <br />
                 
             </div>
-            <jsp:include page="foot.jsp"/>
+            <jsp:include page="userFoot.jsp"/>
     </body>
 </html>

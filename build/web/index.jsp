@@ -79,7 +79,8 @@
                 Register as new user <br />
                 <br />
                 <br />
-                Name   :<br /> <input type="text" name="name" ><br />
+                First Name   :<br /> <input type="text" name="firstname" ><br />
+                Last Name: <br /> <input type="text" name ="lastname"><br />
                 DOB    :<br /> <input type="date" name="dob" ><br />
                 Address: <br />
                 <div id="locationField">

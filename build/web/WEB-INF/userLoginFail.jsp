@@ -48,6 +48,6 @@
 
         </div>
     </center>
-    <jsp:include page="foot.jsp"/>
+    <jsp:include page="userFoot.jsp"/>
 </body>
 </html>
