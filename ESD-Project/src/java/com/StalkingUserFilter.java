@@ -1,4 +1,4 @@
-package test;
+package com;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Jdbc;
 
-public class StalkingUsersFilter implements Filter {
+public class StalkingUserFilter implements Filter {
 
     private FilterConfig fc;
     
