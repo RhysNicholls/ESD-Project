@@ -51,18 +51,20 @@ public class UserLogin extends HttpServlet {
 
             if (jdbc.checkUser(id, password)) {
                 if (id.equals("admin") && password.equals("admin")) {
-                    
+
                     session.setAttribute("userID", "admin");
                     request.getRequestDispatcher("/Admin.do").forward(request, response);
-                
-            } else {
+
+                } else {
                     session.setAttribute("userID", id);
                     request.getRequestDispatcher("/User.do").forward(request, response);
-                    
-            }
+
+                }
 
             } else {
-                request.getRequestDispatcher("/WEB-INF/userLoginFail.jsp").forward(request, response);
+                JOptionPane.showMessageDialog(null, "You have entered an invalid Username and/or Password, please try again.", "Warning", JOptionPane.WARNING_MESSAGE);
+                request.getRequestDispatcher("/index.jsp").forward(request, response);
+
             }
         }
 
