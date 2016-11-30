@@ -44,12 +44,9 @@ public class NewUser extends HttpServlet {
         String[] query = new String[5];
         String firstname = (String) request.getParameter("firstname");
         String lastname = (String) request.getParameter("lastname");
-
-        query[0] = firstname.substring(0, 1).toLowerCase() + "-" + lastname.toLowerCase();
-        query[1] = (String) request.getParameter("firstname") + " " + (String) request.getParameter("lastname");
-        query[2] = (String) request.getParameter("address");
-        query[3] = (String) request.getParameter("dob");
-        query[4] = RandomStringUtils.randomAlphabetic(10).toLowerCase();
+        String address = request.getParameter("address");
+        String dob =  request.getParameter("dob");
+        
 
         Jdbc jdbc = new Jdbc();
         jdbc.connect((Connection) request.getServletContext().getAttribute("connection"));
@@ -60,11 +57,26 @@ public class NewUser extends HttpServlet {
             JOptionPane.showMessageDialog(null, "Names can't have numbers in, please try again.", "Warning", JOptionPane.WARNING_MESSAGE);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
 
-        } else if (firstname.matches(".*\\d+.*") || lastname.matches(".*\\d+.*")) {
+        } else if (firstname.matches(".*\\d+.*") || lastname.matches(".*\\d+.*") || (lastname.isEmpty() || firstname.isEmpty())) {
             
-            JOptionPane.showMessageDialog(null, "Names can't have numbers in, please try again.", "Warning", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "You have entered an invalid Firstname and Lastname, please try again.", "Warning", JOptionPane.WARNING_MESSAGE);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
-        } else {
+        } else if(address.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "You have entered an invalid Address, please try again.", "Warning", JOptionPane.WARNING_MESSAGE);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            
+        } else if(dob.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "You have entered an invalid date of birth, please try again.", "Warning", JOptionPane.WARNING_MESSAGE);
+            request.getRequestDispatcher("/index.jsp").forward(request, response);
+            
+        }else {
+            
+            query[0] = firstname.substring(0, 1).toLowerCase() + "-" + lastname.toLowerCase();
+            query[1] = (String) request.getParameter("firstname") + " " + (String) request.getParameter("lastname");
+            query[2] = (String) request.getParameter("address");
+            query[3] = (String) request.getParameter("dob");
+            query[4] = RandomStringUtils.randomAlphabetic(10).toLowerCase();
+            
             
             jdbc.insertNewUser(query);
             request.setAttribute("username", query[0]);

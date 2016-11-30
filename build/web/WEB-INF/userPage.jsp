@@ -16,10 +16,10 @@
         <style>
             .options {
                 float: left;
-                margin: 200px;
+                margin: 100px;
                 padding: 15px;
-                width: 300px;
-                height: 300px;
+                width: 500px;
+                height: 400px;
                 border: 1px solid black;
                 border-radius: 25px;
                 background-color: white; opacity: 0.8;  
@@ -31,11 +31,11 @@
         </style>
         <style>
             .options2 {
-                float: left;
-                margin: 200px;
+                float: right;
+                margin: 100px;
                 padding: 15px;
-                width: 300px;
-                height: 300px;
+                width: 500px;
+                height: 400px;
                 border: 1px solid black;
                 border-radius: 25px;
                 background-color: white; opacity: 0.8; 
