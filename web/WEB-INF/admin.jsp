@@ -14,16 +14,23 @@
         <title>Admin Page</title>
         <style>
             .admin {
+                float: top;
                 align-content: center;
                 margin: 25px;
                 padding: 15px;
                 max-width: 300px;
                 height: 500px;
                 border: 1px solid black;
+                border-radius: 25px;
+                background-color: white; opacity: 0.8;  
             } 
+            .admin:hover {
+                opacity: 1.0;
+                background-color: white;
+            }
         </style>
     </head>
-    <body>
+    <body background = "${pageContext.request.contextPath}/resources/car.jpg">
         <div class ="w3-container w3-blue w3-hover-light-blue"> 
 
             <center>

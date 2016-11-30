@@ -23,10 +23,16 @@
                 max-width: 300px;
                 height: 500px;
                 border: 1px solid black;
+                border-radius: 25px;
+                background-color: white; opacity: 0.8;
             } 
+            .regSuccess:hover {
+                opacity: 1.0;
+                background-color: white;
+            }
         </style>
     </head>
-    <body>
+    <body background = "${pageContext.request.contextPath}/resources/car.jpg">
         <div class ="w3-container w3-blue w3-hover-light-blue"> 
 
             <center>
@@ -44,7 +50,6 @@
                 <% out.println(request.getAttribute("password"));%>
                 <br>
                 <p><b>Please write them down somewhere safe </b></p>
-                <% out.println(session.getAttribute("userID"));%>
                 <br>
                 <br>
                 <form action="index.jsp">
