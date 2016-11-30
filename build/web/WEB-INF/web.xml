@@ -32,6 +32,10 @@
         <servlet-name>MakeClaim</servlet-name>
         <servlet-class>pages.NewClaim</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Admin</servlet-name>
+        <servlet-class>com.Admin</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>UserServLet</servlet-name>
         <url-pattern>/UserService.do</url-pattern>
@@ -59,6 +63,10 @@
     <servlet-mapping>
         <servlet-name>MakeClaim</servlet-name>
         <url-pattern>/MakeClaim</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Admin</servlet-name>
+        <url-pattern>/Admin.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

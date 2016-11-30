@@ -9,23 +9,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Admin Page</title>
     </head>
     <body>
     <center>
         <h1>Admin Page</h1>
         
+        <form action="Admin.do" method="post">
         Current Members <br/>
-        <%=(String)(request.getAttribute("query"))%> <br />
+        <input type=submit name="members" value="View All Members"> <br />
         
         Outstanding Balances: <br/>
-        <input type=submit value="Check"> <br />
+        <input type=submit name="outstanding" value="View All Members"> <br /> <br />
         
         Check Claims <br />
         <input type=submit value="Check"> <br />
         
         Member Applications <br />
-        <input type=submit value="Check"> <br />
+        <input type=submit name="applications" value="View All Application"> <br /> <br />
         
         Individual Claims <br />
         <input type=submit value="Check"> <br />
@@ -44,7 +45,7 @@
         <%=(String)(request.getAttribute("query"))%> <br />
         
         
-        
+        </form>   
         <jsp:include page="foot.jsp"/>
     </center>
     </body>

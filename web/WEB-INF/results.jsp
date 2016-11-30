@@ -11,9 +11,9 @@
         <title>DB Results</title>
     </head>
     <body>
-        <h1>The retrieved Data :</h1>
+        <h1><%=(String)(request.getAttribute("title"))%></h1>
 
-        <%=(String)(request.getAttribute("query"))%>
+        <%=(String)(request.getAttribute("msg"))%>
         <jsp:include page="foot.jsp"/>
     </body>
 </html>
