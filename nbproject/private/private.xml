@@ -3,17 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/src/java/model/Jdbc.java</file>
-            <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/web/WEB-INF/userLoginFail.jsp</file>
+            <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/web/WEB-INF/userPage.jsp</file>
             <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/src/java/com/UserFilter.java</file>
+            <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/web/WEB-INF/regSuccess.jsp</file>
             <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/web/index.jsp</file>
-            <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/src/java/com/UserLogin.java</file>
-            <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/src/java/com/UserServlet.java</file>
-            <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/web/WEB-INF/conErr.jsp</file>
             <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/src/java/pages/NewUser.java</file>
-            <file>file:/C:/Users/Rhys/Documents/GitHub/ESD-Group-Project/src/java/com/UserServletListener.java</file>
         </group>
     </open-files>
 </project-private>

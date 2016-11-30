@@ -8,6 +8,7 @@ package pages;
 import java.io.IOException;
 import java.sql.Connection;
 import java.util.Random;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -34,35 +35,36 @@ public class NewUser extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
-        
-        HttpSession session = request.getSession(false);
-         
+
+        HttpSession session = request.getSession();
+
         Random rn = new Random();
-        
-        
-        String [] query = new String[5];
-        
-        query[0] = (String)request.getParameter("name").trim().toLowerCase() + rn.nextInt(10);
-        query[1] = (String)request.getParameter("name");
-        query[2] = (String)request.getParameter("address");
-        query[3] = (String)request.getParameter("dob");
+
+        String[] query = new String[5];
+
+        query[0] = (String) request.getParameter("firstname").substring(0, 1).toLowerCase() + "-" + (String) request.getParameter("lastname").toLowerCase();
+        query[1] = (String) request.getParameter("firstname") + " " + (String) request.getParameter("lastname");
+        query[2] = (String) request.getParameter("address");
+        query[3] = (String) request.getParameter("dob");
         query[4] = RandomStringUtils.randomAlphabetic(10).toLowerCase();
-      
+
         Jdbc jdbc = new Jdbc();
-        jdbc.connect((Connection)request.getServletContext().getAttribute("connection"));
-        session.setAttribute("dbbean", jdbc); 
-        
-        if (jdbc == null)
+        jdbc.connect((Connection) request.getServletContext().getAttribute("connection"));
+        session.setAttribute("dbbean", jdbc);
+
+        if (jdbc == null) {
             request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
-        
-        
-        else {
+        } else {
+            
             jdbc.insertNewUser(query);
-            request.setAttribute("message", "Your Username is:" + query[0]+ " Your Passowrd is: " + query[4]);
+            request.setAttribute("username", query[0]);
+            request.setAttribute("password", query[4]);
+            session.setAttribute("userID", query[0]);
+            session.setAttribute("Login", "yes");
+
+            request.getRequestDispatcher("/WEB-INF/regSuccess.jsp").forward(request, response);
         }
-         
-        request.getRequestDispatcher("/WEB-INF/user.jsp").forward(request, response);
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

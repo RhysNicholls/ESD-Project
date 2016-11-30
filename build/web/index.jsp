@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>login Page</title>
     </head>
     
         
@@ -28,7 +28,8 @@
         </form>
       <form method="POST" action="NewUser.do">     
             Register as new user <br />
-            Name   : <input type="text" name="name" ><br />
+            First Name   : <input type="text" name="firstname" ><br />
+            Last Name: <input type="text" name="lastname" ><br />
             DOB    : <input type="date" name="dob" ><br />
             Address: <input type="text" name="address" ><br />
             

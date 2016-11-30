@@ -36,7 +36,7 @@ public class UserLogin extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        HttpSession session = request.getSession(false);
+        HttpSession session = request.getSession();
 
         Jdbc jdbc = new Jdbc();
         jdbc.connect((Connection) request.getServletContext().getAttribute("connection"));
@@ -50,20 +50,23 @@ public class UserLogin extends HttpServlet {
             String password = request.getParameter("password");
 
             if (jdbc.checkUser(id, password)) {
-
-                if (jdbc.checkAdmin(id, password)) {
+                if (id.equals("admin") && password.equals("admin")) {
                     request.getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
-                } else {
+                    session.setAttribute("userID", "admin");
+                
+            } else {
                     request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
-                }
-
+                    session.setAttribute("userID", id);
             }
-            request.getRequestDispatcher("/WEB-INF/userLoginFail.jsp").forward(request, response);
+
+            } else {
+                request.getRequestDispatcher("/WEB-INF/userLoginFail.jsp").forward(request, response);
+            }
         }
 
     }
+// <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

@@ -14,7 +14,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import com.UserFilter;
 
 /**
  *
@@ -25,6 +24,7 @@ public class Jdbc {
     Connection connection = null;
     Statement statement = null;
     ResultSet rs = null;
+    LocalDate ls = LocalDate.now();
     //String query = null;
 
     public Jdbc(String query) {
@@ -112,31 +112,55 @@ public class Jdbc {
         }
         return bool;
     }
+
     public void insertNewClaim(String[] str) {
 
         PreparedStatement ps = null;
-        
+
         try {
 
             ps = connection.prepareStatement("INSERT INTO claims (id, mem_id, date, rationale, status, amount) VALUES (?,?,?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
-         
+            ps.setString(2, str[0]);
+            ps.setDate(3, java.sql.Date.valueOf(ls));
+            ps.setString(4, str[1]);
+            ps.setString(5, "SUBMITED");
+            ps.setFloat(6, Float.valueOf(str[3]));
             ps.executeUpdate();
 
             ps.close();
-            
-
-
 
         } catch (SQLException ex) {
             Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
+
+    public void insertNewPayment(String[] str) {
+
+        PreparedStatement ps = null;
+
+        try {
+
+            ps = connection.prepareStatement("INSERT INTO payments (id, mem_id, type_of_payment, amount, date) VALUES (?,?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setString(2, str[0]);
+            ps.setString(3, str[1]);
+            ps.setFloat(4, Float.valueOf(str[3]));
+            ps.setDate(5, java.sql.Date.valueOf(ls));
+            ps.executeUpdate();
+
+            ps.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     public void insertNewUser(String[] str) {
 
         PreparedStatement ps = null;
         PreparedStatement ps2 = null;
-        LocalDate ls = LocalDate.now();
+
         try {
 
             ps = connection.prepareStatement("INSERT INTO members(id, name, address, dob, dor, status, balance) VALUES (?,?,?,?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
@@ -150,7 +174,6 @@ public class Jdbc {
             ps.executeUpdate();
 
             ps.close();
-            System.out.println("1 row added.");
 
             ps2 = connection.prepareStatement("INSERT INTO users(id, password, status) VALUES (?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
             ps2.setString(1, str[0]);
@@ -174,35 +197,14 @@ public class Jdbc {
             ps3.setString(2, password);
             ResultSet rs = ps3.executeQuery();
             st = rs.next();
-            
 
         } catch (SQLException ex) {
             Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
         }
         return st;
     }
-    
-    public boolean checkAdmin(String id, String password) {
-        boolean st = false;
-        try {
 
-            PreparedStatement ps3 = connection.prepareStatement("select * from users where id=? and password=?");
-            ps3.setString(1, id);
-            ps3.setString(2, password);
-            ResultSet rs = ps3.executeQuery();
-            String status = rs.getString("status");
-            if (rs.getString(3).contains("ADMIN")){
-                st = true;
-            }
-            
- 
-        } catch (SQLException ex) {
-            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return st;
-    }
-
-    public void update(String[] str) {
+    public void update(String[] str, String table) {
         PreparedStatement ps = null;
         try {
             ps = connection.prepareStatement("Update users Set password=? where username=?", PreparedStatement.RETURN_GENERATED_KEYS);
@@ -211,7 +213,7 @@ public class Jdbc {
             ps.executeUpdate();
 
             ps.close();
-            System.out.println("1 rows updated.");
+
         } catch (SQLException ex) {
             Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
         }

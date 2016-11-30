@@ -6,11 +6,15 @@
 package pages;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.sql.Connection;
+import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Jdbc;
+import org.apache.commons.lang3.RandomStringUtils;
 
 /**
  *
@@ -32,6 +36,30 @@ public class NewClaim extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         
+        HttpSession session = request.getSession(false);
+        
+        
+        String [] query = new String[3];
+        
+        query[0] = (String)request.getParameter("rationale").trim();
+        query[1] = (String)request.getParameter("amount");
+        query[2] = (String)request.getParameter("UserID");
+        
+        Jdbc jdbc = new Jdbc();
+        
+        jdbc.connect((Connection)request.getServletContext().getAttribute("connection"));
+        session.setAttribute("dbbean", jdbc); 
+        
+        if (jdbc == null)
+            request.getRequestDispatcher("/WEB-INF/conErr.jsp").forward(request, response);
+        
+        
+        else {
+           jdbc.insertNewClaim(query);
+          request.setAttribute("message", "A claim has been made: " + query[0] + " The amount is: " + query[1]);
+        }
+         
+        request.getRequestDispatcher("/WEB-INF/user.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

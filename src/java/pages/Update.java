@@ -50,7 +50,7 @@ public class Update extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/passwdChange.jsp").forward(request, response); 
             }
              else {
-                jdbc.update(query);
+                //jdbc.update(query);
                 
                 request.setAttribute("msg", ""+query[0]+"'s passwd is changed</br>");
                 request.getRequestDispatcher("/WEB-INF/passwdChange.jsp").forward(request, response);
