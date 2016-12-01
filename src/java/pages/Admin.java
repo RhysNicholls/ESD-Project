@@ -133,6 +133,40 @@ public class Admin extends HttpServlet {
                 
          
         }
+        
+        if (request.getParameter("suspendButton") != null) {
+            String[] hey = new String[2];
+            hey[0] = (String) request.getParameter("suspendOrRemove");
+            hey[1] = "SUSPENDED";
+            
+                
+            try {   
+                dbBean.updateMemberStatus(hey);
+            } catch (SQLException ex) {
+                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+         
+        }
+        
+        if (request.getParameter("resumeButton") != null) {
+            String[] hey = new String[2];
+            hey[0] = (String) request.getParameter("suspendOrRemove");
+            hey[1] = "APPROVED";
+            
+                
+            try {   
+                dbBean.updateMemberStatus(hey);
+            } catch (SQLException ex) {
+                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+         
+        }
         request.getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
     }
 
