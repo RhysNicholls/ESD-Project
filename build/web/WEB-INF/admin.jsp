@@ -63,13 +63,13 @@
 
                     Member Applications <br />
                     <input type ="text" name="memberApplicationText">
-                    <input type ="submit" name="memberApplicationButton" value ="Approve"> <br />
-                    
+                    <input type ="submit" name="memberApplicationButton" value ="Approve"> <br />                    
                     <br />
 
                     Suspend/Resume Memberships
-                    <input type=submit value="Suspend">
-                    <input type=submit value="Resume"> <br />
+                    <input type=text name="suspendOrRemove">
+                    <input type=submit name="suspendButton" value ="Suspend">
+                    <input type=submit name="resumeButton" value ="Resume"> <br />
                     <br />
                     
                     Annual Turnover

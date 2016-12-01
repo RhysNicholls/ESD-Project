@@ -1,10 +1,11 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package pages;
 
+import static java.awt.SystemColor.window;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -81,6 +82,7 @@ public class User extends HttpServlet {
             } catch (SQLException ex) {
                 Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
             }
+            
             if (request.getParameter("makePayment") != null) {
         
             String[] query = new String[3];
@@ -94,7 +96,8 @@ public class User extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
             } else {
                 dbBean.insertNewPayment(query);
-
+                request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
+                
             }
             
         

@@ -66,17 +66,17 @@
                 <input type="hidden" name="sub_form" val="form_pay"> <br />
                 <input type="number" name="payment" step="0.01"> <br />
                 <input type=submit name="makePayment" value="Make Payment"> <br />
-
                 All Payments: <br />
                 <%=(String) (request.getAttribute("allPayments"))%> <br />
-            </form>
 
+
+            </form>
         </div>
 
 
 
         <div class ="options2">
-            
+
             <form action="User.do" method ="POST">
                 Submit Claim: <br />
                 Amount: <br />
@@ -84,13 +84,13 @@
                 Rationale: <br />
                 <input type="text" name="reason"> <br />
                 <input type=submit name="claim" value="Submit Claim"> <br />
+                
             </form>
 
 
             All Claims: <br />
             <%=(String) (request.getAttribute("allClaims"))%> <br />
         </div>
-
     </center>
 
     <jsp:include page="userFoot.jsp"/>

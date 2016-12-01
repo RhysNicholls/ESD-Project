@@ -54,9 +54,8 @@ public class Admin extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-       
         Jdbc dbBean = new Jdbc();
-        
+
         dbBean.connect((Connection) request.getServletContext().getAttribute("connection"));
         session.setAttribute("dbbean", dbBean);
 
@@ -118,8 +117,6 @@ public class Admin extends HttpServlet {
             request.setAttribute("title", "List of current claims");
             request.getRequestDispatcher("/WEB-INF/results.jsp").forward(request, response);
         }
-
-      
 
         request.getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
     }
