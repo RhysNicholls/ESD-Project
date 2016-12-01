@@ -19,7 +19,7 @@
                 margin: 200px;
                 padding: 15px;
                 width: 300px;
-                height: 300px;
+                height: 500px;
                 border: 1px solid black;
                 border-radius: 25px;
                 background-color: white; opacity: 0.8;  
@@ -34,7 +34,7 @@
                 float: left;
                 margin: 200px;
                 padding: 15px;
-                width: 300px;
+                width: 400px;
                 height: 300px;
                 border: 1px solid black;
                 border-radius: 25px;
@@ -81,7 +81,7 @@
                 Submit Claim: <br />
                 Amount: <br />
                 <input type="text" name ="amount"> <br />
-                Reason: <br />
+                Rationale: <br />
                 <input type="text" name="reason"> <br />
                 <input type=submit name="claim" value="Submit Claim"> <br />
             </form>

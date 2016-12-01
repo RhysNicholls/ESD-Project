@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 import model.Jdbc;
 
 /**
@@ -87,8 +88,18 @@ public class User extends HttpServlet {
             query[0] = (String)session.getAttribute("userID");
             query[1] = "FEE";
             query[2] = (String) request.getParameter("payment");
-            dbBean.insertNewPayment(query);
-        }
+            
+            if(query[2].isEmpty()) {
+                JOptionPane.showMessageDialog(null, "You have entered an invalid payment, please try again.", "Warning", JOptionPane.WARNING_MESSAGE);
+                request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
+            } else {
+                dbBean.insertNewPayment(query);
+
+            }
+            
+        
+            
+            }
          
          if (request.getParameter("claim") != null) {
             
@@ -97,8 +108,22 @@ public class User extends HttpServlet {
             query[0] = (String) session.getAttribute("userID");
             query[1] = (String) request.getParameter("reason");
             query[2] = (String) request.getParameter("amount");
-            dbBean.insertNewClaim(query);
+            
+            if(query[1].isEmpty()) {
+                JOptionPane.showMessageDialog(null, "You have entered an invalid reason, please try again.", "Warning", JOptionPane.WARNING_MESSAGE);
+                request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
+            } else if(query[2].isEmpty() || query[2].matches(".*[a-z].*")) {
+                JOptionPane.showMessageDialog(null, "You have entered an invalid amount, please try again.", "Warning", JOptionPane.WARNING_MESSAGE);
+                request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
+            } else {
+                dbBean.insertNewClaim(query);
+            }
+            
+            
         }
+         
+         
+         
             request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
         }
     

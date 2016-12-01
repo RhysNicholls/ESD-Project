@@ -69,7 +69,7 @@ public class NewUser extends HttpServlet {
             JOptionPane.showMessageDialog(null, "You have entered an invalid date of birth, please try again.", "Warning", JOptionPane.WARNING_MESSAGE);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
             
-        }else {
+        } else {
             
             query[0] = firstname.substring(0, 1).toLowerCase() + "-" + lastname.toLowerCase();
             query[1] = (String) request.getParameter("firstname") + " " + (String) request.getParameter("lastname");
