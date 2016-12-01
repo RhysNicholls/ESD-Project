@@ -79,7 +79,7 @@ public class Admin extends HttpServlet {
 
             try {
 
-                msg = dbBean.retrieve("select id, name from members where status='APPLIED'");
+                msg = dbBean.retrieve("select id, name from members where status ='APPLIED'");
                 request.setAttribute("msg", msg);
 
             } catch (SQLException ex) {
@@ -88,6 +88,21 @@ public class Admin extends HttpServlet {
             request.setAttribute("title", "List of all current applications");
             request.getRequestDispatcher("/WEB-INF/results.jsp").forward(request, response);
         }
+        
+        if (request.getParameter("outstanding") != null) {
+
+            try {
+
+                msg = dbBean.retrieve("select mem_id, amount from payments where amount>='0'");
+                request.setAttribute("msg", msg);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            request.setAttribute("title", "List of all current members with outstanding balences");
+            request.getRequestDispatcher("/WEB-INF/results.jsp").forward(request, response);
+        }
+            
  request.getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
     }
 

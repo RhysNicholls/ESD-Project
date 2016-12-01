@@ -19,7 +19,7 @@
                 margin: 25px;
                 padding: 15px;
                 max-width: 300px;
-                height: 500px;
+                height: 575px;
                 border: 1px solid black;
                 border-radius: 25px;
                 background-color: white; opacity: 0.8;  
@@ -41,35 +41,41 @@
         <div class ="admin">
             <center>
                 <form action="Admin.do" method="post">
-                    Current Members <br/>
-                    <%=(String) (request.getAttribute("msg"))%> <br />
+
+                    Current Members 
                     <input type=submit name="members" value="View All Members"> <br />
+                    <br/>
 
                     Outstanding Balances: <br/>
                     <input type=submit name="outstanding" value="View All Members"> <br /> <br />
 
                     Check Claims <br />
                     <input type=submit value="Check"> <br />
+                    <br />
 
                     Member Applications <br />
-                    <input type=submit name="applications" value="View All Application"> <br /> <br />
+                    <input type=submit name="applications" value="View All Application"> <br /> 
+                    <br />
 
                     Individual Claims <br />
                     <input type=submit value="Check"> <br />
+                    <br />
 
                     Member Applications <br />
-                    <%=(String) (request.getAttribute("query"))%> <br />
                     <input type=submit value="Approve">
                     <input type=submit value="Deny"> <br />
+                    <br />
 
                     Suspend/Resume Memberships
-                    <%=(String) (request.getAttribute("query"))%> <br />
                     <input type=submit value="Suspend">
                     <input type=submit value="Resume"> <br />
-
+                    <br />
+                    
                     Annual Turnover
-                    <%=(String) (request.getAttribute("query"))%> <br />
+                    <%=(String) (request.getAttribute("query"))%> 
+                    <br />
                     </div>
+
             </center>
 
 
