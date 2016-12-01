@@ -50,7 +50,7 @@
                     <input type=submit name="outstanding" value="View All Members"> <br /> <br />
 
                     Check Claims <br />
-                    <input type=submit value="Check"> <br />
+                    <input type=submit name="checkClaims" value="Check Claims"> <br />
                     <br />
 
                     Member Applications <br />

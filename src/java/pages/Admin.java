@@ -102,6 +102,20 @@ public class Admin extends HttpServlet {
             request.setAttribute("title", "List of all current members with outstanding balences");
             request.getRequestDispatcher("/WEB-INF/results.jsp").forward(request, response);
         }
+        
+        if (request.getParameter("checkClaims") != null) {
+
+            try {
+
+                msg = dbBean.retrieve("select * from claims");
+                request.setAttribute("msg", msg);
+
+            } catch (SQLException ex) {
+                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            request.setAttribute("title", "List of current claims");
+            request.getRequestDispatcher("/WEB-INF/results.jsp").forward(request, response);
+        }
             
  request.getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
     }
