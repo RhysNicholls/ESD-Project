@@ -19,7 +19,7 @@
                 margin: 200px;
                 padding: 15px;
                 width: 300px;
-                height: 500px;
+                max-height: 800px;
                 border: 1px solid black;
                 border-radius: 25px;
                 background-color: white; opacity: 0.8;  
@@ -35,7 +35,7 @@
                 margin: 200px;
                 padding: 15px;
                 width: 400px;
-                height: 300px;
+                max-height: 800px;
                 border: 1px solid black;
                 border-radius: 25px;
                 background-color: white; opacity: 0.8; 
