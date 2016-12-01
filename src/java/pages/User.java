@@ -120,6 +120,8 @@ public class User extends HttpServlet {
                 request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
             } else {
                 dbBean.insertNewClaim(query);
+                
+                
             }
             
             

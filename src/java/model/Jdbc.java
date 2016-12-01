@@ -103,6 +103,29 @@ public class Jdbc {
         return makeTable(rsToList());//results;
     }
 
+    public void updateMemberStatus(String[] str) throws SQLException, ClassNotFoundException {
+
+        PreparedStatement ps = null;
+        PreparedStatement ps2 = null;
+        try {
+            ps = connection.prepareStatement("update members set status=? where id=?");
+            ps.setString(1, str[1]);
+            ps.setString(2, str[0]);
+
+            ps.executeUpdate();
+
+            ps2 = connection.prepareStatement("update users set status=? where id=?");
+            ps2.setString(1, str[1]);
+            ps2.setString(2, str[0]);
+
+            ps2.executeUpdate();
+
+            ps2.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Jdbc.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public boolean exists(String user) {
         boolean bool = false;
         try {

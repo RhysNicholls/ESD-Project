@@ -63,7 +63,9 @@
 
                     Member Applications <br />
                     <input type ="text" name="memberApplicationText">
-                    <input type ="submit" name="memberApplicationButton" value ="Approve"> <br />                    
+                    <input type ="submit" name="memberApplicationButton" value ="Approve"> <br />    
+                    
+                    
                     <br />
 
                     Suspend/Resume Memberships
@@ -79,6 +81,7 @@
 
             </center>
 
+                    </form>
 
             <jsp:include page="userFoot.jsp"/>
         </center>

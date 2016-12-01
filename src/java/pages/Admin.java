@@ -53,9 +53,8 @@ public class Admin extends HttpServlet {
         HttpSession session = request.getSession();
 
         response.setContentType("text/html;charset=UTF-8");
-
         Jdbc dbBean = new Jdbc();
-
+        String user = null;
         dbBean.connect((Connection) request.getServletContext().getAttribute("connection"));
         session.setAttribute("dbbean", dbBean);
 
@@ -118,6 +117,22 @@ public class Admin extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/results.jsp").forward(request, response);
         }
 
+        if (request.getParameter("memberApplicationButton") != null) {
+            String[] hey = new String[2];
+            hey[0] = (String) request.getParameter("memberApplicationText");
+            hey[1] = "APPROVED";
+            
+                
+            try {   
+                dbBean.updateMemberStatus(hey);
+            } catch (SQLException ex) {
+                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ClassNotFoundException ex) {
+                Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                
+         
+        }
         request.getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
     }
 
