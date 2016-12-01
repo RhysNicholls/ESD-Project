@@ -57,40 +57,41 @@
 
     <center>
         <form action ="user.do" method ="post">
-        <div class ="options">
-            Outstanding Balance: <br/>
-            <%=(String) (request.getAttribute("balance"))%> <br />
+            <div class ="options">
+                Outstanding Balance: <br/>
+                <%=(String) (request.getAttribute("balance"))%> <br />
 
-            Make Payment: <br />
-            <input type="text"> <br />
-            <input type=submit name="payment" value="Make Payment"> <br />
+                Make Payment: <br />
+                <input type="hidden" name="sub_form" val="form_pay"> <br />
+                <input type="number" name="payment" step="0.01"> <br />
+                <input type=submit name="makePayment" value="Make Payment"> <br />
 
-            All Payments: <br />
-            <%=(String) (request.getAttribute("allPayments"))%> <br />
-        </div>
-        </form>
-
-        <form action="claims.do" method ="post">
-
-            <div class ="options2">
-
-                Submit Claim: <br />
-                Amount: <br />
-                <input type="text"> <br />
-                Reason: <br />
-                <input type="text"> <br />
-                <input type=submit name="claim" value="Submit Claim"> <br />
-                
-                
-
-                All Claims: <br />
-                <%=(String) (request.getAttribute("allClaims"))%> <br />
-                </center>
+                All Payments: <br />
+                <%=(String) (request.getAttribute("allPayments"))%> <br />
             </div>
         </form>
 
 
 
-        <jsp:include page="userFoot.jsp"/>
-    </body>
+        <div class ="options2">
+
+            <form action="User.do" method ="POST">
+                Submit Claim: <br />
+                Amount: <br />
+                <input type="text" name ="amount"> <br />
+                Reason: <br />
+                <input type="text" name="reason"> <br />
+                <input type=submit name="claim" value="Submit Claim"> <br />
+            </form>
+
+
+            All Claims: <br />
+            <%=(String) (request.getAttribute("allClaims"))%> <br />
+        </div>
+    </form>
+
+
+
+    <jsp:include page="userFoot.jsp"/>
+</body>
 </html>

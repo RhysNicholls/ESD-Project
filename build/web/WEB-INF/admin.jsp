@@ -43,27 +43,28 @@
                 <form action="Admin.do" method="post">
 
                     Current Members 
-                    <input type=submit name="members" value="View All Members"> <br />
+                    <input type=submit name="members" value="List all members"> <br />
                     <br/>
 
                     Outstanding Balances: <br/>
-                    <input type=submit name="outstanding" value="View All Members"> <br /> <br />
+                    <input type=submit name="outstanding" value="List all outstanding balances"> <br /> <br />
 
                     Check Claims <br />
-                    <input type=submit name="checkClaims" value="Check Claims"> <br />
+                    <input type=submit name="checkClaims" value="List all claims"> <br />
                     <br />
 
                     Member Applications <br />
-                    <input type=submit name="applications" value="View All Application"> <br /> 
+                    <input type=submit name="applications" value="List all applications"> <br /> 
                     <br />
 
                     Individual Claims <br />
-                    <input type=submit value="Check"> <br />
+                    <input type=submit name="processClaims" value="Process individual claims"> <br />
                     <br />
 
                     Member Applications <br />
-                    <input type=submit value="Approve">
-                    <input type=submit value="Deny"> <br />
+                    <input type ="text" name="memberApplicationText">
+                    <input type ="submit" name="memberApplicationButton" value ="Approve"> <br />
+                    
                     <br />
 
                     Suspend/Resume Memberships

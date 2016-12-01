@@ -54,7 +54,9 @@ public class Admin extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
+       
         Jdbc dbBean = new Jdbc();
+        
         dbBean.connect((Connection) request.getServletContext().getAttribute("connection"));
         session.setAttribute("dbbean", dbBean);
 
@@ -88,7 +90,7 @@ public class Admin extends HttpServlet {
             request.setAttribute("title", "List of all current applications");
             request.getRequestDispatcher("/WEB-INF/results.jsp").forward(request, response);
         }
-        
+
         if (request.getParameter("outstanding") != null) {
 
             try {
@@ -102,7 +104,7 @@ public class Admin extends HttpServlet {
             request.setAttribute("title", "List of all current members with outstanding balences");
             request.getRequestDispatcher("/WEB-INF/results.jsp").forward(request, response);
         }
-        
+
         if (request.getParameter("checkClaims") != null) {
 
             try {
@@ -116,8 +118,10 @@ public class Admin extends HttpServlet {
             request.setAttribute("title", "List of current claims");
             request.getRequestDispatcher("/WEB-INF/results.jsp").forward(request, response);
         }
-            
- request.getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
+
+      
+
+        request.getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
     }
 
     /**
