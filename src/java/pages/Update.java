@@ -16,7 +16,7 @@ import model.Jdbc;
 
 /**
  *
- * @author Rhys, Jack, Mark, Ryan
+ * @author me-aydin
  */
 public class Update extends HttpServlet {
 

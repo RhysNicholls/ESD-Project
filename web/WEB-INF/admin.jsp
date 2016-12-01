@@ -42,6 +42,7 @@
             <center>
                 <form action="Admin.do" method="post">
                     Current Members <br/>
+                    <%=(String) (request.getAttribute("msg"))%> <br />
                     <input type=submit name="members" value="View All Members"> <br />
 
                     Outstanding Balances: <br/>

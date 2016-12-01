@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/markc/OneDrive/Documents/GitHub/ESD-Project/web/index.jsp</file>
-            <file>file:/C:/Users/markc/OneDrive/Documents/GitHub/ESD-Project/web/WEB-INF/admin.jsp</file>
+            <file>file:/F:/ESD-Group-Project/src/java/pages/Admin.java</file>
+            <file>file:/F:/ESD-Group-Project/web/WEB-INF/web.xml</file>
+            <file>file:/F:/ESD-Group-Project/src/java/pages/User.java</file>
+            <file>file:/F:/ESD-Group-Project/src/java/pages/NewUser.java</file>
+            <file>file:/F:/ESD-Group-Project/src/java/com/UserLogin.java</file>
+            <file>file:/F:/ESD-Group-Project/src/java/model/Jdbc.java</file>
+            <file>file:/F:/ESD-Group-Project/web/WEB-INF/userPage.jsp</file>
+            <file>file:/F:/ESD-Group-Project/web/WEB-INF/admin.jsp</file>
         </group>
     </open-files>
 </project-private>

@@ -50,40 +50,50 @@
         <div class ="w3-container w3-blue w3-hover-light-blue"> 
             <center>
                 <h1>XYZ Drivers Association</h1>
-                <h1>Members page</h1>
+                <h2>Welcome <%=(String) (session.getAttribute("userID"))%> </h2>
+                <h3>Members page</h3>
             </center>
         </div>
 
     <center>
+
         <div class ="options">
-            Outstanding Balance: <br/>
-            <%=(String) (request.getAttribute("query"))%> <br />
+            <form action="User.do" method="POST">
+                Outstanding Balance: <br/>
+                <%=(String) (request.getAttribute("balance"))%> <br />
 
-            Make Payment: <br />
-            <input type="text"> <br />
-            <input type=submit value="Check"> <br />
+                Make Payment: <br />
+                <input type="hidden" name="sub_form" val="form_pay"> <br />
+                <input type="number" name="payment" step="0.01"> <br />
+                <input type=submit name="makePayment" value="Make Payment"> <br />
 
-            All Payments: <br />
-            <%=(String) (request.getAttribute("query"))%> <br />
+                All Payments: <br />
+                <%=(String) (request.getAttribute("allPayments"))%> <br />
+            </form>
+
         </div>
 
 
-        <form action="claims.do" method ="post">
 
-            <div class ="options2">
-
+        <div class ="options2">
+            
+            <form action="User.do" method ="POST">
                 Submit Claim: <br />
-                <input type="text"> <br />
-                <input type=submit value="Check"> <br />
-
-                All Claims: <br />
-                <%=(String) (request.getAttribute("query"))%> <br />
-                </center>
-            </div>
-        </form>
+                Amount: <br />
+                <input type="text" name ="amount"> <br />
+                Reason: <br />
+                <input type="text" name="reason"> <br />
+                <input type=submit name="claim" value="Submit Claim"> <br />
+            </form>
 
 
+            All Claims: <br />
+            <%=(String) (request.getAttribute("allClaims"))%> <br />
+        </div>
 
-        <jsp:include page="foot.jsp"/>
-    </body>
+    </center>
+
+
+    <jsp:include page="foot.jsp"/>
+</body>
 </html>

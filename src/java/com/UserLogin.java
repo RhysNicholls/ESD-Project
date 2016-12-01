@@ -19,7 +19,7 @@ import model.Jdbc;
 
 /**
  *
- * @author Rhys, Jack, Mark, Ryan
+ * @author Rhys
  */
 public class UserLogin extends HttpServlet {
 
@@ -51,12 +51,14 @@ public class UserLogin extends HttpServlet {
 
             if (jdbc.checkUser(id, password)) {
                 if (id.equals("admin") && password.equals("admin")) {
-                    request.getRequestDispatcher("/WEB-INF/admin.jsp").forward(request, response);
+                    
                     session.setAttribute("userID", "admin");
+                    request.getRequestDispatcher("/Admin.do").forward(request, response);
                 
             } else {
-                    request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
                     session.setAttribute("userID", id);
+                    request.getRequestDispatcher("/User.do").forward(request, response);
+                    
             }
 
             } else {
