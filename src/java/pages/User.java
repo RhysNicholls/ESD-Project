@@ -32,11 +32,10 @@ public class User extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
+       
     }
 
     /**
@@ -50,30 +49,59 @@ public class User extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         response.setContentType("text/html;charset=UTF-8");
-        
-         HttpSession session = request.getSession(false);
+        response.setContentType("text/html;charset=UTF-8");
+
+        HttpSession session = request.getSession(false);
 
         response.setContentType("text/html;charset=UTF-8");
 
         Jdbc dbBean = new Jdbc();
         dbBean.connect((Connection) request.getServletContext().getAttribute("connection"));
+
         
-      
-        try {
-            String balance = dbBean.retrieve("select balance from members where id='"+ session.getAttribute("userID") +"'");
-            request.setAttribute("balance", balance);
-            String allPayments = dbBean.retrieve("select * from payments where mem_id='"+ session.getAttribute("userID") +"'");
-            request.setAttribute("allPayments", allPayments);
-            String allClaims = dbBean.retrieve("select * from claims where mem_id='"+ session.getAttribute("userID") +"'");
-            request.setAttribute("allClaims", allClaims);
-        } catch (SQLException ex) {
-            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                String balance = dbBean.retrieve("select balance from members where id='" + session.getAttribute("userID") + "'");
+                request.setAttribute("balance", balance);
+
+                String allPayments = dbBean.retrieve("select * from payments where mem_id='" + session.getAttribute("userID") + "'");
+                if (allPayments != null) {
+                    request.setAttribute("allPayments", allPayments);
+                } else {
+                    request.setAttribute("allPayments", "No payments made yet");
+                }
+
+                String allClaims = dbBean.retrieve("select * from claims where mem_id='" + session.getAttribute("userID") + "'");
+                if (allClaims != null) {
+                    request.setAttribute("allClaims", allClaims);
+                } else {
+                    request.setAttribute("allClaims", "No claims made yet");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            if (request.getParameter("makePayment") != null) {
+        
+            String[] query = new String[3];
+
+            query[0] = (String)session.getAttribute("userID");
+            query[1] = "FEE";
+            query[2] = (String) request.getParameter("payment");
+            dbBean.insertNewPayment(query);
+        }
+         
+         if (request.getParameter("claim") != null) {
+            
+            String[] query = new String[3];
+
+            query[0] = (String) session.getAttribute("userID");
+            query[1] = (String) request.getParameter("reason");
+            query[2] = (String) request.getParameter("amount");
+            dbBean.insertNewClaim(query);
+        }
+            request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
         }
     
-
-        request.getRequestDispatcher("/WEB-INF/userPage.jsp").forward(request, response);
-    }
 
     /**
      * Returns a short description of the servlet.

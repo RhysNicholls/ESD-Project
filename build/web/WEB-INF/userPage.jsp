@@ -16,10 +16,10 @@
         <style>
             .options {
                 float: left;
-                margin: 100px;
+                margin: 200px;
                 padding: 15px;
-                width: 500px;
-                height: 400px;
+                width: 300px;
+                height: 300px;
                 border: 1px solid black;
                 border-radius: 25px;
                 background-color: white; opacity: 0.8;  
@@ -31,11 +31,11 @@
         </style>
         <style>
             .options2 {
-                float: right;
-                margin: 100px;
+                float: left;
+                margin: 200px;
                 padding: 15px;
-                width: 500px;
-                height: 400px;
+                width: 300px;
+                height: 300px;
                 border: 1px solid black;
                 border-radius: 25px;
                 background-color: white; opacity: 0.8; 
@@ -56,8 +56,9 @@
         </div>
 
     <center>
-        <form action ="user.do" method ="post">
-            <div class ="options">
+
+        <div class ="options">
+            <form action="User.do" method="POST">
                 Outstanding Balance: <br/>
                 <%=(String) (request.getAttribute("balance"))%> <br />
 
@@ -68,13 +69,14 @@
 
                 All Payments: <br />
                 <%=(String) (request.getAttribute("allPayments"))%> <br />
-            </div>
-        </form>
+            </form>
+
+        </div>
 
 
 
         <div class ="options2">
-
+            
             <form action="User.do" method ="POST">
                 Submit Claim: <br />
                 Amount: <br />
@@ -88,9 +90,8 @@
             All Claims: <br />
             <%=(String) (request.getAttribute("allClaims"))%> <br />
         </div>
-    </form>
 
-
+    </center>
 
     <jsp:include page="userFoot.jsp"/>
 </body>

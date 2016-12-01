@@ -6,18 +6,21 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  *
- * @author me-aydi
+ * @author Mark, Rhys, Jack, Ryan
  */
 public class Jdbc {
 
@@ -25,6 +28,7 @@ public class Jdbc {
     Statement statement = null;
     ResultSet rs = null;
     LocalDate ls = LocalDate.now();
+    LocalDateTime lst = LocalDateTime.now();
     //String query = null;
 
     public Jdbc(String query) {
@@ -83,7 +87,6 @@ public class Jdbc {
             //results = e.toString();
         }
     }
-    
 
     public String retrieve(String query) throws SQLException {
         String results = "";
@@ -120,12 +123,12 @@ public class Jdbc {
 
         try {
 
-            ps = connection.prepareStatement("INSERT INTO claims (id, mem_id, date, rationale, status, amount) VALUES (?,?,?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setString(2, str[0]);
-            ps.setDate(3, java.sql.Date.valueOf(ls));
-            ps.setString(4, str[1]);
-            ps.setString(5, "SUBMITED");
-            ps.setFloat(6, Float.valueOf(str[3]));
+            ps = connection.prepareStatement("INSERT INTO claims (mem_id, date, rationale, status, amount) VALUES (?,?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
+            ps.setString(1, str[0]);
+            ps.setDate(2, java.sql.Date.valueOf(ls));
+            ps.setString(3, str[1]);
+            ps.setString(4, "SUBMITED");
+            ps.setFloat(5, Float.valueOf(str[2]));
             ps.executeUpdate();
 
             ps.close();
@@ -140,13 +143,23 @@ public class Jdbc {
 
         PreparedStatement ps = null;
 
+        long time = System.currentTimeMillis();
+        java.sql.Timestamp timestamp = new java.sql.Timestamp(time);
+        Date date = new Date(timestamp.getTime());
+        System.out.println(date);
+        System.out.println(str[0]);
+        System.out.println(str[1]);
+        System.out.println(str[2]);
+
+        float amount = Float.parseFloat(str[2]);
+
         try {
 
-            ps = connection.prepareStatement("INSERT INTO payments (id, mem_id, type_of_payment, amount, date) VALUES (?,?,?,?,?)", PreparedStatement.RETURN_GENERATED_KEYS);
-            ps.setString(2, str[0]);
-            ps.setString(3, str[1]);
-            ps.setFloat(4, Float.valueOf(str[3]));
-            ps.setDate(5, java.sql.Date.valueOf(ls));
+            ps = connection.prepareStatement("INSERT INTO payments (mem_id, type_of_payment, amount, date) VALUES (?,?,?,?)");
+            ps.setString(1, str[0]);
+            ps.setString(2, str[1]);
+            ps.setFloat(3, amount);
+            ps.setDate(4, date);
             ps.executeUpdate();
 
             ps.close();
@@ -171,7 +184,7 @@ public class Jdbc {
             ps.setDate(4, java.sql.Date.valueOf(str[3]));
             ps.setDate(5, java.sql.Date.valueOf(ls));
             ps.setString(6, "APPLIED");
-            ps.setFloat(7, (float) 0.0);
+            ps.setFloat(7, (float) 10.0);
             ps.executeUpdate();
 
             ps.close();
